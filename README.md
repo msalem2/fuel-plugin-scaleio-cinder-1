@@ -121,8 +121,8 @@ Once the plugin has been installed in the Master, we configure the nodes and set
 
 **Plugin's parameters explanation:** 
 
-|Parameter Name|Parameter Description|
-|--------------|---------------------|
+|Parameter Name       |Parameter Description|
+|---------------------|---------------------|
 |ScaleIO Repo URL| The URL of the ScaleIO sources repository. This is the URL for the required scaleIO zip file that contains the ScaleIO product. For our example we are using the URI for the [ScaleIO Linux download](http://downloads.emc.com/emc-com/usa/ScaleIO/ScaleIO_Linux_SW_Download.zip "ScaleIO Linux Download") located in the ScaleIO trial download at [EMC.com](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "ScaleIO Trial Download")|
 |userName|The ScaleIO User Name|
 |Password|The SclaeIO password for the selected user name|
@@ -147,6 +147,17 @@ Once the plugin has been installed in the Master, we configure the nodes and set
 
 **[TODO]**
 
+The ScaleIO Cinder driver supports the following operations:
+- Create volume
+- Delete volume
+- Attach volume
+- Detach volume
+- Create snapshot
+- Delete snapshot
+- Create volume from snapshot
+- Copy image to volume
+- Copy volume to image
+- Extend volume
 
 
 
