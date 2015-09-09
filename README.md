@@ -119,6 +119,27 @@ Once the plugin has been installed in the Master, we configure the nodes and set
 2. Setup the ScaleIO Cluster parameters in the plugin UI
 ![ScaleIO Cluster Parameters](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-3.jpg)
 
+**Plugin's parameters explanation:** 
+
+|Parameter Name|Parameter Description|
+|--------------|---------------------|
+|ScaleIO Repo URL| The URL of the ScaleIO sources repository. This is the URL for the required scaleIO zip file that contains the ScaleIO product. For our example we are using the URI for the [ScaleIO Linux download](http://downloads.emc.com/emc-com/usa/ScaleIO/ScaleIO_Linux_SW_Download.zip "ScaleIO Linux Download") located in the ScaleIO trial download at [EMC.com](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "ScaleIO Trial Download")|
+|userName|The ScaleIO User Name|
+|Password|The SclaeIO password for the selected user name|
+|ScaleIO GW IP|The IP address of the the ScaleIO Gateway service|
+|ScaleIO Primary IP|The ScaleIO cluster's primary IP address|
+|ScaleIO Secondary IP|The ScaleIO cluster's secondary IP address|
+|ScaleIO protection domain|Name of the ScaleIO's protection domain|
+|ScaleIO storage pool 1|Name of the first storage pool|
+|Driver Labels for the first storage Pool|List of driver labels for the first storage pool (comma separated)|
+|ScaleIO storage pool 2|Name of the second storage pool (Optional)|
+|Driver Labels for the second storage Pool|List of driver labels for the second storage pool (comma separated)|
+|Driver Labels for the first storage Pool|List of driver labels for the first storage pool (comma separated)|
+|Fault sets list|List of the fault sets (comma separated)|
+
+**Note:** Please refer to the ScaleIO documentation for more information on these parameters 
+
+
 3. Execute the Installation: 
 ![OpenStack Deployment Successful](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-4.jpg)
 
