@@ -8,6 +8,7 @@
 - [Configuration](#configuration)
 	- [ScaleIO Cinder plugin installation](#scaleio-cinder-plugin-installation)
 	- [ScaleIO Cinder plugin configuration](#scaleio-cinder-plugin-configuration)
+	- [ScaleIO Cinder plugin operations](#scaleio-cinder-plugin-operations)
 - [Contributions](#contributions)
 - [License](#licensing)
 
@@ -98,13 +99,11 @@ Before starting a deployment there are some things that you should verify:
 
 ### ScaleIO Cinder plugin installation
 
+The first step is to install the ScaleIO Cinder plugin in the Fuel Master:
 
-You will need to install this fuel plugin into the Fuel Master: 
-
-
-All of the needed code for using SclaeIO in an OpenStack deployment is
-included in the upstream OpenStack distribution.  There are no additional
-libraries, software packages or licenses.
+1. Download the plugin from the releases page in the Fuel Master directory: [https://github.com/emccode/fuel-plugin-scaleio-cinder-test/releases ](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/releases  "Releases' page")
+2. Install the plugin in the fuel master using the following command: `installation command goes here`
+3. Verify that the plugin has been installed successfully: 
 
 ![Plugin Installation](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-1.png)
 
