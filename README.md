@@ -21,30 +21,27 @@ The following diagram shows the plugin high level architecture:
 ![ScaleIO Fuel plugin high level architecture](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-1.png)
 
 
-### Components Description
+From the figure we can see that we need the following OpenStack Services/Roles: 
 
-These are the services that are required 
 
-OpenStack Service
+Service/Role Name | Description | Installed in |
+|------------|-------------|--------------|
+|Controller Node + Cinder Host | |OpenStack Cluster|
+|Compute Node | |OpenStack Cluster|
 
+
+
+It is also required to have have an external ScaleIO cluster with the following roles and services. 
 
 Service Name | Description | Installed in |
 |------------|-------------|--------------|
 |Rest Gateway Service | |ScaleIO Cluster|
-
-
-
-### ScaleIO Service
-
-Service Name | Description | Installed in |
-|------------|-------------|--------------|
-|Rest Gateway Service | |ScaleIO Cluster|
-|Metadata Manager (MDM)| |ScaleIO Cluster|
+|Meta-data Manager (MDM)| |ScaleIO Cluster|
 |Tie Breaker (TB)| |ScaleIO Cluster|
 |Storage Data Server (SDS)| |ScaleIO Cluster|
 |Storage Data Client (SDC)| |ScaleIO Cluster| 
 
-
+**Note:** for more information in how to deploy a ScaleIO Cluster, please refer to the ScaleIO manuals located in the download packages for your platform: [http://www.emc.com/products-solutions/trial-software-download/scaleio.htm](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "Download ScaleIO") and/or [watch the demo](https://community.emc.com/docs/DOC-45019 "Watch our demo to learn how to download, install, and configure ScaleIO")
 
 
 ## Requirements
