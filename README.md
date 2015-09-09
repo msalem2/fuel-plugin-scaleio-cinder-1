@@ -101,7 +101,7 @@ Before starting a deployment there are some things that you should verify:
 
 The first step is to install the ScaleIO Cinder plugin in the Fuel Master:
 
-1. Download the plugin from the releases page in the Fuel Master directory: [https://github.com/emccode/fuel-plugin-scaleio-cinder-test/releases ](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/releases  "Releases' page") or from the [Fuel Plugins Catalog](https://www.mirantis.com/products/openstack-drivers-and-plugins/fuel-plugins/ "Fuel Plugins Catalalog")
+1. Download the plugin from the [releases section](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/releases "Releases Page") or from the [Fuel plugins catalog](https://www.mirantis.com/products/openstack-drivers-and-plugins/fuel-plugins/ "Fuel Plugins Catalog").
  
 2. Copy the plugin to an already installed Fuel Master node. If you do not have the Fuel Master node yet, follow the instructions from the official Mirantis OpenStack documentation:
 
@@ -109,8 +109,8 @@ The first step is to install the ScaleIO Cinder plugin in the Fuel Master:
 
 3. Log into the Fuel Master node and install the plugin, if downloaded in the `/tmp` directory:
 
-   ` cd /tmp`
-   ` fuel plugins --install /tmp/fuel-plugin-scaleio-cinder-1.0.noarch.rpm`
+   ` cd /tmp
+     fuel plugins --install /tmp/fuel-plugin-scaleio-cinder-1.0.noarch.rpm`
     
 
 4. Verify that the plugin has been installed successfully: 
