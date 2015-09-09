@@ -16,12 +16,12 @@ Fuel plugin for ScaleIO for enabling OpenStack to work with an **External** Scal
 
 ScaleIO is a software-only solution that uses existing servers' local disks and LAN to create a virtual SAN that has all the benefits of external storage—but at a fraction of cost and complexity. ScaleIO utilizes the existing local internal storage and turns it into internal shared block storage.
 
-The following diagram shows the plugin high level architecture: 
+The following diagram shows the plugin's high level architecture: 
 
 ![ScaleIO Fuel plugin high level architecture](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-1.png)
 
 
-From the figure we can see that we need the following OpenStack Services/Roles: 
+From the figure we can see that we need the following OpenStack roles and services: 
 
 
 Service/Role Name | Description | Installed in |
@@ -30,30 +30,29 @@ Service/Role Name | Description | Installed in |
 |Compute Node | |OpenStack Cluster|
 
 
-
-It is also required to have have an external ScaleIO cluster with the following roles and services. 
+In the **external ScaleIO cluster** we have installed the following roles and services: 
 
 Service Name | Description | Installed in |
 |------------|-------------|--------------|
-|Rest Gateway Service | |ScaleIO Cluster|
-|Meta-data Manager (MDM)| |ScaleIO Cluster|
-|Tie Breaker (TB)| |ScaleIO Cluster|
-|Storage Data Server (SDS)| |ScaleIO Cluster|
-|Storage Data Client (SDC)| |ScaleIO Cluster| 
+|SclaeIO Gateway (REST API)|The ScaleIO Gateway Service, includes the REST API to communicate storage commands to the SclaeIO Cluster, in addtion this service is used for authentication and certificate management.|ScaleIO Cluster|
+|Meta-data Manager (MDM)|Configures and monitors the ScaleIO system. The MDM can be configured in redundant Cluster Mode, with three members on three servers, or in Single Mode on a single server.|ScaleIO Cluster|
+|Tie Breaker (TB)|Tie Breaker service helps determining what service runs as a master vs. a slave |ScaleIO Cluster|
+|Storage Data Server (SDS)|A lightweight device driver that exposes ScaleIO volumes as block devices to the application that resides on the same server on which the SDC is installed.|Openstack Cluster|
+|Storage Data Client (SDC)|Manages the capacity of a single server and acts as a back-end for data access.The SDS is installed on all servers contributing storage devices to the ScaleIO system. These devices are accessed through the SDS.|ScaleIO Cluster| 
 
 **Note:** for more information in how to deploy a ScaleIO Cluster, please refer to the ScaleIO manuals located in the download packages for your platform: [http://www.emc.com/products-solutions/trial-software-download/scaleio.htm](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "Download ScaleIO") and/or [watch the demo](https://community.emc.com/docs/DOC-45019 "Watch our demo to learn how to download, install, and configure ScaleIO")
 
 
 ## Requirements
 
-**[TODO]**
+These are the plugin version requirements: 
 
 
 | Requirement                                              | Version/Comment |
 |----------------------------------------------------------|-----------------|
 | Mirantis OpenStack compatibility                         | >= 6.1          |
-| Access to ScaleIO via cinder-volume node          |                 |
-| Access to ScaleIO  via compute/cinder-volume nodes |                 |
+| Access to ScaleIO via cinder-volume node                 |                 |
+| Access to ScaleIO  via compute/cinder-volume nodes       |                 |
 | iSCSI initiator on all compute/cinder-volume nodes       |                 |
 
 
@@ -65,6 +64,15 @@ Currently Fuel doesn't support multi-backend storage.
 ## Configuration
 
 **[TODO]**
+
+Table of contents
+
+
+|File/Directory|Description|
+|--------------|-----------|
+|
+
+
 
 
 Before starting a deployment there are some things that you should verify:
