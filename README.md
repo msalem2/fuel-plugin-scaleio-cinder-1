@@ -109,8 +109,8 @@ The first step is to install the ScaleIO Cinder plugin in the Fuel Master:
 
 3. Log into the Fuel Master node and install the plugin, if downloaded in the `/tmp` directory:
 
-`cd /tmp`
-`fuel plugins --install /tmp/fuel-plugin-scaleio-cinder-1.0.noarch.rpm`
+	`cd /tmp`
+	`fuel plugins --install /tmp/fuel-plugin-scaleio-cinder-1.0.noarch.rpm`
     
 
 4. Verify that the plugin has been installed successfully: 
