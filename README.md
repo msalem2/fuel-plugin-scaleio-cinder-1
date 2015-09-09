@@ -43,17 +43,19 @@ Service Name | Description | Installed in |
 **Note:** for more information in how to deploy a ScaleIO Cluster, please refer to the ScaleIO manuals located in the download packages for your platform: [http://www.emc.com/products-solutions/trial-software-download/scaleio.htm](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "Download ScaleIO") and/or [watch the demo](https://community.emc.com/docs/DOC-45019 "Watch our demo to learn how to download, install, and configure ScaleIO")
 
 
+
 ## Requirements
 
-These are the plugin version requirements: 
+These are the plugin requirements: 
 
 
 | Requirement                                              | Version/Comment |
 |----------------------------------------------------------|-----------------|
 | Mirantis OpenStack compatibility                         | >= 6.1          |
-| Access to ScaleIO via cinder-volume node                 |                 |
-| Access to ScaleIO  via compute/cinder-volume nodes       |                 |
-| iSCSI initiator on all compute/cinder-volume nodes       |                 |
+| ScaleIO Version										   | >= 1.32         |
+| OpenStack Cluster can access ScaleIO Cluster (Controller/cinder-volume node)| via a TCP/IP Network  |
+| OpenStack Cluster can access ScaleIO Cluster (Compute nodes)| via a TCP/IP Network  |
+| Install ScaleIO Storage Data Client (SDC) in Controller and Compute Nodes| Plugin takes care of install|
 
 
 ## Limitations
@@ -70,9 +72,14 @@ Table of contents
 
 |File/Directory|Description|
 |--------------|-----------|
-|
+|Deployment_scripts| Folder that includes the bash/puppet manifests for deploying the services and roles required by the plugin|
+|Deployment_scripts/puppet||
+|environment_config.yaml||
 
 
+This Fuel plugin will install the ScaleIO Storage Data Client (SDC) service on each Controller node and Compute node in the cluster. This is necessary in order for the VMs in each compute node to utilize ScaleIO Storage:
+
+![Plugin Architecture ](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-2.png)
 
 
 Before starting a deployment there are some things that you should verify:
