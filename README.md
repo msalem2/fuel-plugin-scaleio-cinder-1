@@ -16,9 +16,34 @@ Fuel plugin for ScaleIO for enabling OpenStack to work with an **External** Scal
 
 ScaleIO is a software-only solution that uses existing servers' local disks and LAN to create a virtual SAN that has all the benefits of external storage—but at a fraction of cost and complexity. ScaleIO utilizes the existing local internal storage and turns it into internal shared block storage.
 
-The following diagram shows the plugin configuration: 
+The following diagram shows the plugin high level architecture: 
 
-[https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-1.png](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-1.png "ScaleIO Fuel plugin high level architecture")
+![ScaleIO Fuel plugin high level architecture](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-1.png)
+
+
+### Components Description
+
+These are the services that are required 
+
+OpenStack Service
+
+
+Service Name | Description | Installed in |
+|------------|-------------|--------------|
+|Rest Gateway Service | |ScaleIO Cluster|
+
+
+
+### ScaleIO Service
+
+Service Name | Description | Installed in |
+|------------|-------------|--------------|
+|Rest Gateway Service | |ScaleIO Cluster|
+|Metadata Manager (MDM)| |ScaleIO Cluster|
+|Tie Breaker (TB)| |ScaleIO Cluster|
+|Storage Data Server (SDS)| |ScaleIO Cluster|
+|Storage Data Client (SDC)| |ScaleIO Cluster| 
+
 
 
 
