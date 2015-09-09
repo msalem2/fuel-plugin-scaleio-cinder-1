@@ -26,8 +26,8 @@ From the figure we can see that we need the following OpenStack roles and servic
 
 Service/Role Name | Description | Installed in |
 |------------|-------------|--------------|
-|Controller Node + Cinder Host | |OpenStack Cluster|
-|Compute Node | |OpenStack Cluster|
+|Controller Node + Cinder Host |A node that runs network, volume, API, scheduler, and image services. Each service may be broken out into separate nodes for scalability or availability. In addition this node is a Cinder Host, that contains the Cinder Volume Manager|OpenStack Cluster|
+|Compute Node |A node that runs the nova-compute daemon that manages Virtual Machine (VM) instances that provide a wide range of services, such as web applications and analytics.|OpenStack Cluster|
 
 
 In the **external ScaleIO cluster** we have installed the following roles and services: 
@@ -37,8 +37,8 @@ Service Name | Description | Installed in |
 |SclaeIO Gateway (REST API)|The ScaleIO Gateway Service, includes the REST API to communicate storage commands to the SclaeIO Cluster, in addtion this service is used for authentication and certificate management.|ScaleIO Cluster|
 |Meta-data Manager (MDM)|Configures and monitors the ScaleIO system. The MDM can be configured in redundant Cluster Mode, with three members on three servers, or in Single Mode on a single server.|ScaleIO Cluster|
 |Tie Breaker (TB)|Tie Breaker service helps determining what service runs as a master vs. a slave |ScaleIO Cluster|
-|Storage Data Server (SDS)|A lightweight device driver that exposes ScaleIO volumes as block devices to the application that resides on the same server on which the SDC is installed.|Openstack Cluster|
-|Storage Data Client (SDC)|Manages the capacity of a single server and acts as a back-end for data access.The SDS is installed on all servers contributing storage devices to the ScaleIO system. These devices are accessed through the SDS.|ScaleIO Cluster| 
+|Storage Data Server (SDS)|Manages the capacity of a single server and acts as a back-end for data access.The SDS is installed on all servers contributing storage devices to the ScaleIO system. These devices are accessed through the SDS.|ScaleIO Cluster| 
+|Storage Data Client (SDC)|A lightweight device driver that exposes ScaleIO volumes as block devices to the application that resides on the same server on which the SDC is installed.|Openstack Cluster|
 
 **Note:** for more information in how to deploy a ScaleIO Cluster, please refer to the ScaleIO manuals located in the download packages for your platform: [http://www.emc.com/products-solutions/trial-software-download/scaleio.htm](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "Download ScaleIO") and/or [watch the demo](https://community.emc.com/docs/DOC-45019 "Watch our demo to learn how to download, install, and configure ScaleIO")
 
@@ -53,8 +53,8 @@ These are the plugin requirements:
 |----------------------------------------------------------|-----------------|
 | Mirantis OpenStack compatibility                         | >= 6.1          |
 | ScaleIO Version										   | >= 1.32         |
-| OpenStack Cluster can access ScaleIO Cluster (Controller/cinder-volume node)| via a TCP/IP Network  |
-| OpenStack Cluster can access ScaleIO Cluster (Compute nodes)| via a TCP/IP Network  |
+| OpenStack Cluster (Controller/cinder-volume node) can access ScaleIO Cluster | via a TCP/IP Network  |
+| OpenStack Cluster (Compute nodes) can access ScaleIO Cluster| via a TCP/IP Network  |
 | Install ScaleIO Storage Data Client (SDC) in Controller and Compute Nodes| Plugin takes care of install|
 
 
