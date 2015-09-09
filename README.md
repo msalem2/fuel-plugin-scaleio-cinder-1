@@ -6,6 +6,8 @@
 - [Requirements](#requirements)
 - [Limitations](#limitations)
 - [Configuration](#configuration)
+	- [ScaleIO Cinder plugin installation](#scaleio-cinder-plugin-installation)
+	- [ScaleIO Cinder plugin configuration](#scaleio-cinder-plugin-configuration)
 - [Contributions](#contributions)
 - [License](#licensing)
 
@@ -112,6 +114,12 @@ libraries, software packages or licenses.
 
 **[TODO]**
 
+
+
+
+### ScaleIO Cinder plugin operations
+
+**[TODO]**
 
 
 
