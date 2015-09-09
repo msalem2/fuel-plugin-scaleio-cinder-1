@@ -53,6 +53,7 @@ These are the plugin requirements:
 |----------------------------------------------------------|-----------------|
 | Mirantis OpenStack compatibility                         | >= 6.1          |
 | ScaleIO Version										   | >= 1.32         |
+| Controller and Compute Nodes' Operative System		   | CentOS/RHEL 6.5 |
 | OpenStack Cluster (Controller/cinder-volume node) can access ScaleIO Cluster | via a TCP/IP Network  |
 | OpenStack Cluster (Compute nodes) can access ScaleIO Cluster| via a TCP/IP Network  |
 | Install ScaleIO Storage Data Client (SDC) in Controller and Compute Nodes| Plugin takes care of install|
@@ -65,16 +66,19 @@ Currently Fuel doesn't support multi-backend storage.
 
 ## Configuration
 
-**[TODO]**
 
-Table of contents
-
+Plugin files and directories:
 
 |File/Directory|Description|
 |--------------|-----------|
 |Deployment_scripts| Folder that includes the bash/puppet manifests for deploying the services and roles required by the plugin|
 |Deployment_scripts/puppet||
-|environment_config.yaml||
+|environment_config.yaml|Contains the ScaleIO plugin parameters/fields for the Fuel web UI|
+|metadata.yaml|Contains the name, version and compatibility information for the ScaleIO plugin|
+|pre_build_hook|Mandatory file - blank for the ScaleIO plugin|
+|repositories/centos|Empty Directory, the plugin scripts will download the required CentOS packages|
+|repositories/Ubuntu|Empty Directory, not used|
+|taks.yaml|Contains the information about what scripts to run and how to run them|
 
 
 This Fuel plugin will install the ScaleIO Storage Data Client (SDC) service on each Controller node and Compute node in the cluster. This is necessary in order for the VMs in each compute node to utilize ScaleIO Storage:
@@ -92,11 +96,17 @@ Before starting a deployment there are some things that you should verify:
 
 ### ScaleIO Cinder plugin installation
 
-**[TODO]**
+
+You will need to install this fuel plugin into the Fuel Master: 
+
 
 All of the needed code for using SclaeIO in an OpenStack deployment is
 included in the upstream OpenStack distribution.  There are no additional
 libraries, software packages or licenses.
+
+![Plugin Installation](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-1.png)
+
+
 
 ### ScaleIO Cinder plugin configuration
 
