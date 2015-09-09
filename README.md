@@ -111,10 +111,16 @@ The first step is to install the ScaleIO Cinder plugin in the Fuel Master:
 
 ### ScaleIO Cinder plugin configuration
 
-**[TODO]**
+Once the plugin has been installed in the Master, we configure the nodes and set the parameters for the plugin: 
 
+1. Define the Roles for each one of the Nodes
+![OpenStack Node configuration](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-2.png)
 
+2. Setup the ScaleIO Cluster parameters in the plugin UI
+![ScaleIO Cluster Parameters](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-3.jpg)
 
+3. Execute the Installation: 
+![OpenStack Deployment Successful](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-4.jpg)
 
 ### ScaleIO Cinder plugin operations
 
