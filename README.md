@@ -6,7 +6,7 @@
 - [Requirements](#requirements)
 - [Limitations](#limitations)
 - [Configuration](#configuration)
-- [Contributions](#contributing-to-the-fuel-plugin-for-scaleIO)
+- [Contributions](#contributions)
 - [License](#licensing)
 
 
@@ -64,7 +64,7 @@ libraries, software packages or licenses.
 
 
 
-## Contributing to the Fuel plugin for ScaleIO
+## Contributions
 
 The Fuel plugin for ScaleIO project has been licensed under the  [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0") License. In order to contribute to the  project you will to do two things:
 
