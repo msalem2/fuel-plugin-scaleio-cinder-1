@@ -155,16 +155,18 @@ Once the plugin has been installed in the Master, we configure the nodes and set
 	![ScaleIO Cluster Parameters](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-5.PNG)
 
 
-4. Once the configuration is done, you can Add the nodes to the Openstack Deployment. There is a minimum of two nodes for this configuration: 
+4. After the configuration is done, you can Add the nodes to the Openstack Deployment. There is a minimum of two nodes for this configuration: 
 
-Service/Role Name | Description |
-|------------|-------------|
-|Controller Node + Cinder Host |A node that runs network, volume, API, scheduler, and image services. Each service may be broken out into separate nodes for scalability or availability. In addition this node is a Cinder Host, that contains the Cinder Volume Manager|
-|Compute Node |A node that runs the nova-compute daemon that manages Virtual Machines (VMs) instances that provide a wide range of services, such as web applications and analytics.|
+	Service/Role Name | Description |
+	|------------|-------------|
+	|Controller Node + Cinder Host |A node that runs network, volume, API, scheduler, and image services. Each service may be broken out into separate nodes for scalability or availability. In addition this node is a Cinder Host, that contains the Cinder Volume Manager|
+	|Compute Node |A node that runs the nova-compute daemon that manages Virtual Machines (VMs) instances that provide a wide range of services, such as web applications and analytics.|
 
 	![OpenStack Node Deployment](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-3.PNG)
 
-5. Once configuration is done, you can run [network verification](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#verify-networks) check and [deploy the environment](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#deploy-changes). After this is complete you should see a success message:
+	**Note:** you can run the [network verification](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#verify-networks) check and [deploy the environment](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#deploy-changes). 
+
+	After this is complete you should see a success message:
 
 	![OpenStack Deployment Successful](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-complete.jpg)
 
@@ -177,28 +179,33 @@ Service/Role Name | Description |
 
 Once the OpenStack Cluster is setup, we can setup ScaleIO Volumes. This is an example in how to attach a Volume to a running VM:  
 
-1. Login into the OpenStack Cluster: 
-![OpenStack Login](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-6.PNG)
+1. Login into the OpenStack Cluster:
+ 
+	![OpenStack Login](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-6.PNG)
 
-2. Review the Block storage services by navigating: Admin -> System -> System Information secction. You should see the ScaleIO Cinder Volume.  
-![Block Storage Services Verification](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-7.PNG)
+2. Review the Block storage services by navigating: Admin -> System -> System Information secction. You should see the ScaleIO Cinder Volume. 
+ 
+	![Block Storage Services Verification](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-7.PNG)
 
-3. Review the System Volumes by navigating to:  Admin -> System -> Volumes. You should see the ScaleIO Volume Type: 
-![Volume Type Verification](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-8.PNG)
+3. Review the System Volumes by navigating to:  Admin -> System -> Volumes. You should see the ScaleIO Volume Type:
+
+	![Volume Type Verification](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-8.PNG)
 
 4. Create a new OpenStack Volume: 
-![Volume Creation](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-9.PNG)
+	
+	![Volume Creation](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-9.PNG)
 
 5. View the newly created Volume:
-![Volume Listing](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-10.PNG)
+	
+	![Volume Listing](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-10.PNG)
 
 6. In the ScaleIO Control Panel, you will see that no Volumes have been mapped yet:	
-	
-![ScaleIO UI No mapped Volumes](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-11.PNG)
+
+	![ScaleIO UI No mapped Volumes](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-11.PNG)
 
 7. Once the Volume is attached to a VM, the ScaleIO UI will reflect the mapping: 
 
-![ScaleIO UI Mapped Volume](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-12.png)
+	![ScaleIO UI Mapped Volume](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/scaleio-cinder-install-12.png)
 
 
 
