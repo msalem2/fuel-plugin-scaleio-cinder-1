@@ -21,7 +21,7 @@ ScaleIO is a software-only solution that uses existing servers' local disks and 
 
 The following diagram shows the plugin's high level architecture: 
 
-![ScaleIO Fuel plugin high level architecture](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-1.png)
+![ScaleIO Fuel plugin high level architecture](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-1.jpg)
 
 
 From the figure we can see that we need the following OpenStack roles and services: 
@@ -86,7 +86,7 @@ Plugin files and directories:
 
 This Fuel plugin will install the ScaleIO Storage Data Client (SDC) service on each Controller node and Compute node in the cluster. This is necessary in order for the VMs in each compute node to utilize ScaleIO Storage:
 
-![Plugin Architecture ](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-2.png)
+![Plugin Architecture ](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-2.jpg)
 
 
 Before starting a deployment there are some things that you should verify:
@@ -138,7 +138,7 @@ Once the plugin has been installed in the Master, we configure the nodes and set
 	
 	|Parameter Name       |Parameter Description|
 	|---------------------|---------------------|
-	|ScaleIO Repo URL| The URL of the ScaleIO sources repository. This is the URL for the required scaleIO zip file that contains the ScaleIO product. For our example we are using the URI for the [ScaleIO Linux download](http://downloads.emc.com/emc-com/usa/ScaleIO/ScaleIO_Linux_SW_Download.zip "ScaleIO Linux Download") located in the ScaleIO trial download at [EMC.com](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "ScaleIO Trial Download")|
+	|ScaleIO Repo URL| The URL of the ScaleIO sources repository. This is the URL for the required scaleIO zip file that contains the ScaleIO product. **The URL can point to an external repository (requires external network access to that repository) or to an internal server in the local network (a local webserver)**. For our example we are using the URI for the [ScaleIO Linux download](http://downloads.emc.com/emc-com/usa/ScaleIO/ScaleIO_Linux_SW_Download.zip "ScaleIO Linux Download") located in the ScaleIO trial download at [EMC.com](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "ScaleIO Trial Download"). |
 	|userName|The ScaleIO User Name|
 	|Password|The SclaeIO password for the selected user name|
 	|ScaleIO GW IP|The IP address of the the ScaleIO Gateway service|
