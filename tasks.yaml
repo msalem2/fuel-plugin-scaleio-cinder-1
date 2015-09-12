@@ -4,22 +4,34 @@
 # cinder and compute nodes
 #Install ScaleIO cluster
 - role: ['compute']
-  stage: post_deployment
+  stage: post_deployment/9000
+  type: puppet
+  parameters:
+    puppet_manifest: download_scaleio_rpms.pp
+    puppet_modules: puppet/:/etc/puppet/modules
+    timeout: 600
+- role: ['compute']
+  stage: post_deployment/9010
   type: puppet
   parameters:
     puppet_manifest: install_scaleio_compute.pp
     puppet_modules: puppet/:/etc/puppet/modules
     timeout: 600
-
 #Install ScaleIO on controller
 - role: ['controller']
-  stage: post_deployment
+  stage: post_deployment/9000
+  type: puppet
+  parameters:
+    puppet_manifest: download_scaleio_rpms.pp
+    puppet_modules: puppet/:/etc/puppet/modules
+    timeout: 600
+- role: ['controller']
+  stage: post_deployment/9010
   type: puppet
   parameters:
     puppet_manifest: install_scaleio_controller.pp
     puppet_modules: puppet/:/etc/puppet/modules
     timeout: 600
-
 #Remove ScaleIO repo from all servers
 - role: '*'
   stage: post_deployment
