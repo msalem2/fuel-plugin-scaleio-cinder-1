@@ -1,5 +1,5 @@
 # Fuel Plugin ScaleIO on Cinder for OpenStack
-**Build:**<a href="http://buildserver.emccode.com/viewType.html?-buildTypeId=FuelPluginsForScaleIO_FuelPluginScaleioCinder&guest=1"><img src="http://buildserver.emccode.com/app/rest/builds/buildType:(id:FuelPluginsForScaleIO_FuelPluginScaleioCinder)/statusIcon"/></a>
+**Build:** <a href="http://buildserver.emccode.com/viewType.html?-buildTypeId=FuelPluginsForScaleIO_FuelPluginScaleioCinder&guest=1"><img src="http://buildserver.emccode.com/app/rest/builds/buildType:(id:FuelPluginsForScaleIO_FuelPluginScaleioCinder)/statusIcon"/></a>
 
 ### Contents
 
