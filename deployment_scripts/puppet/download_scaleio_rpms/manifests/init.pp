@@ -1,5 +1,5 @@
 class download_scaleio_rpms {
-$version=$facts['operatingsystemmajrelease']
+$version=6
 $scaleio_repo=$plugin_settings['scaleio_repo']
 #create temp folder
 file { [ "/tmp/scaleio/","/tmp/scaleio/rpms" ]:
