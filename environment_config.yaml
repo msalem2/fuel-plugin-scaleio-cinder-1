@@ -1,10 +1,4 @@
 attributes:
-  scaleio_repo:
-    value: ''
-    label: 'ScaleIO repo URL'
-    description: 'Repo URL for ScaleIO software'
-    weight: 4
-    type: "text"
   scaleio_Admin:
     value: ''
     label: 'UserName'
