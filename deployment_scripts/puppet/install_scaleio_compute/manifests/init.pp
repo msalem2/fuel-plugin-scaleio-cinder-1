@@ -10,7 +10,7 @@ class install_scaleio_compute
 #install ScaleIO SDC package  
   
   exec { "install_sdc":    
-    command => "/bin/bash -c \"MDM_IP=$mdm_ip_1,$mdm_ip_2 yum install -y /tmp/scaleio/rpms/EMC-ScaleIO-sdc.rpm\"",        
+    command => "/bin/bash -c \"MDM_IP=$mdm_ip_1,$mdm_ip_2 yum install -y EMC-ScaleIO-sdc.rpm\"",        
     path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
   }
 
