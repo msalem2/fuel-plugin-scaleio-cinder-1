@@ -10,7 +10,7 @@ class install_scaleio_controller
   $scaleio_repo=$plugin_settings['scaleio_repo']
 #1. Install SDC package
   exec { "install_sdc1":    
-    command => "/bin/bash -c \"MDM_IP=$mdm_ip_1,$mdm_ip_2 yum install -y EMC-ScaleIO-sdc.rpm\"",
+    command => "/bin/bash -c \"MDM_IP=$mdm_ip_1,$mdm_ip_2 yum install -y EMC-ScaleIO-sdc\"",
     path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
   } ->
 #2. Copy ScaleIO Files
