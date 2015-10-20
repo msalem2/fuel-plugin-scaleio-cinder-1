@@ -22,7 +22,7 @@ ScaleIO is a software-only solution that uses existing servers' local disks and 
 
 The following diagram shows the plugin's high level architecture: 
 
-![ScaleIO Fuel plugin high level architecture](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-1.jpg)
+![ScaleIO Fuel plugin high level architecture](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/fuel-plugin-scaleio-cinder-1.jpg)
 
 
 From the figure we can see that we need the following OpenStack roles and services: 
@@ -87,7 +87,7 @@ Plugin files and directories:
 
 This Fuel plugin will install the ScaleIO Storage Data Client (SDC) service on each Controller node and Compute node in the cluster. This is necessary in order for the VMs in each compute node to utilize ScaleIO Storage:
 
-![Plugin Architecture ](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/documentation/images/fuel-plugin-scaleio-cinder-2.jpg)
+![Plugin Architecture ](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/fuel-plugin-scaleio-cinder-2.jpg)
 
 
 Before starting a deployment there are some things that you should verify:
