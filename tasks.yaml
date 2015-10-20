@@ -18,6 +18,14 @@
     puppet_manifest: install_scaleio_controller.pp
     puppet_modules: puppet/:/etc/puppet/modules
     timeout: 600
+#Install ScaleIO on controller
+- role: ['primary-controller']
+  stage: post_deployment/2120
+  type: puppet
+  parameters:
+    puppet_manifest: install_scaleio_controller.pp
+    puppet_modules: puppet/:/etc/puppet/modules
+    timeout: 600    
 #Remove ScaleIO repo from all servers
 - role: '*'
   stage: post_deployment
