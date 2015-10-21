@@ -1,3 +1,6 @@
+## WARNING!
+> **This repository is depecrated.** Please use [openstack/fuel-plugin-scaleio-cinder](https://github.com/openstack/fuel-plugin-scaleio-cinder) repository.
+
 # Fuel Plugin ScaleIO on Cinder for OpenStack
 **Build:** <a href="http://buildserver.emccode.com/viewType.html?-buildTypeId=FuelPluginsForScaleIO_FuelPluginScaleioCinder&guest=1"><img src="http://buildserver.emccode.com/app/rest/builds/buildType:(id:FuelPluginsForScaleIO_FuelPluginScaleioCinder)/statusIcon"/></a>
 
@@ -7,9 +10,9 @@
 - [Requirements](#requirements)
 - [Limitations](#limitations)
 - [Configuration](#configuration)
-	- [ScaleIO Cinder plugin installation](#scaleio-cinder-plugin-installation)
-	- [ScaleIO Cinder plugin configuration](#scaleio-cinder-plugin-configuration)
-	- [ScaleIO Cinder plugin OpenStack operations](#scaleio-cinder-plugin-openstack-operations)
+  - [ScaleIO Cinder plugin installation](#scaleio-cinder-plugin-installation)
+  - [ScaleIO Cinder plugin configuration](#scaleio-cinder-plugin-configuration)
+  - [ScaleIO Cinder plugin OpenStack operations](#scaleio-cinder-plugin-openstack-operations)
 - [Contributions](#contributions)
 - [License](#licensing)
 
@@ -20,12 +23,12 @@ Fuel plugin for ScaleIO for enabling OpenStack to work with an **External** Scal
 
 ScaleIO is a software-only solution that uses existing servers' local disks and LAN to create a virtual SAN that has all the benefits of external storage—but at a fraction of cost and complexity. ScaleIO utilizes the existing local internal storage and turns it into internal shared block storage.
 
-The following diagram shows the plugin's high level architecture: 
+The following diagram shows the plugin's high level architecture:
 
 ![ScaleIO Fuel plugin high level architecture](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/fuel-plugin-scaleio-cinder-1.jpg)
 
 
-From the figure we can see that we need the following OpenStack roles and services: 
+From the figure we can see that we need the following OpenStack roles and services:
 
 
 Service/Role Name | Description | Installed in |
@@ -34,14 +37,14 @@ Service/Role Name | Description | Installed in |
 |Compute Node |A node that runs the nova-compute daemon that manages Virtual Machine (VM) instances that provide a wide range of services, such as web applications and analytics.|OpenStack Cluster|
 
 
-In the **external ScaleIO cluster** we have installed the following roles and services: 
+In the **external ScaleIO cluster** we have installed the following roles and services:
 
 Service Name | Description | Installed in |
 |------------|-------------|--------------|
 |SclaeIO Gateway (REST API)|The ScaleIO Gateway Service, includes the REST API to communicate storage commands to the SclaeIO Cluster, in addtion this service is used for authentication and certificate management.|ScaleIO Cluster|
 |Meta-data Manager (MDM)|Configures and monitors the ScaleIO system. The MDM can be configured in redundant Cluster Mode, with three members on three servers, or in Single Mode on a single server.|ScaleIO Cluster|
 |Tie Breaker (TB)|Tie Breaker service helps determining what service runs as a master vs. a slave |ScaleIO Cluster|
-|Storage Data Server (SDS)|Manages the capacity of a single server and acts as a back-end for data access.The SDS is installed on all servers contributing storage devices to the ScaleIO system. These devices are accessed through the SDS.|ScaleIO Cluster| 
+|Storage Data Server (SDS)|Manages the capacity of a single server and acts as a back-end for data access.The SDS is installed on all servers contributing storage devices to the ScaleIO system. These devices are accessed through the SDS.|ScaleIO Cluster|
 |Storage Data Client (SDC)|A lightweight device driver that exposes ScaleIO volumes as block devices to the application that resides on the same server on which the SDC is installed.|Openstack Cluster|
 
 **Note:** for more information in how to deploy a ScaleIO Cluster, please refer to the ScaleIO manuals located in the download packages for your platform: [http://www.emc.com/products-solutions/trial-software-download/scaleio.htm](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "Download ScaleIO") and/or [watch the demo](https://community.emc.com/docs/DOC-45019 "Watch our demo to learn how to download, install, and configure ScaleIO")
@@ -50,7 +53,7 @@ Service Name | Description | Installed in |
 
 ## Requirements
 
-These are the plugin requirements: 
+These are the plugin requirements:
 
 
 | Requirement                                              | Version/Comment |
@@ -103,18 +106,18 @@ Before starting a deployment there are some things that you should verify:
 The first step is to install the ScaleIO Cinder plugin in the Fuel Master:
 
 1. Download the plugin from the [releases section](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/releases "Releases Page") or from the [Fuel plugins catalog](https://www.mirantis.com/products/openstack-drivers-and-plugins/fuel-plugins/ "Fuel Plugins Catalog").
- 
+
 2. Copy the plugin to an already installed Fuel Master node. If you do not have the Fuel Master node yet, follow the instructions from the official Mirantis OpenStack documentation:
 
      `scp  fuel-plugin-scaleio-cinder-1.0.noarch.rpm root@:<the_Fuel_Master_node_IP>:/tmp`
 
 3. Log into the Fuel Master node and install the plugin, if downloaded in the `/tmp` directory:
 
-	`cd /tmp`
-	`fuel plugins --install /tmp/fuel-plugin-scaleio-cinder-1.0.noarch.rpm`
-    
+  `cd /tmp`
+  `fuel plugins --install /tmp/fuel-plugin-scaleio-cinder-1.0.noarch.rpm`
 
-4. Verify that the plugin has been installed successfully: 
+
+4. Verify that the plugin has been installed successfully:
 
 ![Plugin Installation](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-1.png)
 
@@ -125,53 +128,53 @@ The first step is to install the ScaleIO Cinder plugin in the Fuel Master:
 Once the plugin has been installed in the Master, we configure the nodes and set the parameters for the plugin:
 
 
-1. Start by creating a new OpenStack environment following the [Mirantis instructions](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#create-a-new-openstack-environment "Creating a new OpenStack environment") 
+1. Start by creating a new OpenStack environment following the [Mirantis instructions](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#create-a-new-openstack-environment "Creating a new OpenStack environment")
 
 2. Configure your environment following the [Mirantis OpenStack configuration documentation](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#configure-your-environment)
 
-	![OpenStack Node configuration](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-2.png)
+  ![OpenStack Node configuration](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-2.png)
 
 3. Open the **Settings tab** of the Fuel web UI and scroll down the page. Select the Fuel plugin check-box to enable ScaleIO Cinder plugin for Fuel:
 
-	![ScaleIO Cluster Parameters](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-4.PNG)
-	
-	**Plugin's parameters explanation:** 
-	
-	|Parameter Name       |Parameter Description|
-	|---------------------|---------------------|
-	|ScaleIO Repo URL| The URL of the ScaleIO sources repository. This is the URL for the required scaleIO zip file that contains the ScaleIO product. **The URL can point to an external repository (requires external network access to that repository) or to an internal server in the local network (a local webserver)**. For our example we are using the URI for the [ScaleIO Linux download](http://downloads.emc.com/emc-com/usa/ScaleIO/ScaleIO_Linux_SW_Download.zip "ScaleIO Linux Download") located in the ScaleIO trial download at [EMC.com](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "ScaleIO Trial Download"). |
-	|userName|The ScaleIO User Name|
-	|Password|The SclaeIO password for the selected user name|
-	|ScaleIO GW IP|The IP address of the the ScaleIO Gateway service|
-	|ScaleIO Primary IP|The ScaleIO cluster's primary IP address|
-	|ScaleIO Secondary IP|The ScaleIO cluster's secondary IP address|
-	|ScaleIO protection domain|Name of the ScaleIO's protection domain|
-	|ScaleIO storage pool 1|Name of the first storage pool|
-	|Fault sets list|List of the fault sets (comma separated)|
-	
-	**Note:** Please refer to the ScaleIO documentation for more information on these parameters 
+  ![ScaleIO Cluster Parameters](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-4.PNG)
 
-	This is an example of the ScaleIO configuration paremets populated: 
+  **Plugin's parameters explanation:**
 
-	![ScaleIO Cluster Parameters](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-5.PNG)
+  |Parameter Name       |Parameter Description|
+  |---------------------|---------------------|
+  |ScaleIO Repo URL| The URL of the ScaleIO sources repository. This is the URL for the required scaleIO zip file that contains the ScaleIO product. **The URL can point to an external repository (requires external network access to that repository) or to an internal server in the local network (a local webserver)**. For our example we are using the URI for the [ScaleIO Linux download](http://downloads.emc.com/emc-com/usa/ScaleIO/ScaleIO_Linux_SW_Download.zip "ScaleIO Linux Download") located in the ScaleIO trial download at [EMC.com](http://www.emc.com/products-solutions/trial-software-download/scaleio.htm "ScaleIO Trial Download"). |
+  |userName|The ScaleIO User Name|
+  |Password|The SclaeIO password for the selected user name|
+  |ScaleIO GW IP|The IP address of the the ScaleIO Gateway service|
+  |ScaleIO Primary IP|The ScaleIO cluster's primary IP address|
+  |ScaleIO Secondary IP|The ScaleIO cluster's secondary IP address|
+  |ScaleIO protection domain|Name of the ScaleIO's protection domain|
+  |ScaleIO storage pool 1|Name of the first storage pool|
+  |Fault sets list|List of the fault sets (comma separated)|
+
+  **Note:** Please refer to the ScaleIO documentation for more information on these parameters
+
+  This is an example of the ScaleIO configuration paremets populated:
+
+  ![ScaleIO Cluster Parameters](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-5.PNG)
 
 
-4. After the configuration is done, you can Add the nodes to the Openstack Deployment. There is a minimum of two nodes for this configuration: 
+4. After the configuration is done, you can Add the nodes to the Openstack Deployment. There is a minimum of two nodes for this configuration:
 
-	Service/Role Name | Description |
-	|------------|-------------|
-	|Controller Node + Cinder Host |A node that runs network, volume, API, scheduler, and image services. Each service may be broken out into separate nodes for scalability or availability. In addition this node is a Cinder Host, that contains the Cinder Volume Manager|
-	|Compute Node |A node that runs the nova-compute daemon that manages Virtual Machines (VMs) instances that provide a wide range of services, such as web applications and analytics.|
+  Service/Role Name | Description |
+  |------------|-------------|
+  |Controller Node + Cinder Host |A node that runs network, volume, API, scheduler, and image services. Each service may be broken out into separate nodes for scalability or availability. In addition this node is a Cinder Host, that contains the Cinder Volume Manager|
+  |Compute Node |A node that runs the nova-compute daemon that manages Virtual Machines (VMs) instances that provide a wide range of services, such as web applications and analytics.|
 
-	![OpenStack Node Deployment](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-3.PNG)
+  ![OpenStack Node Deployment](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-3.PNG)
 
-	**Note:** you can run the [network verification](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#verify-networks) check and [deploy the environment](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#deploy-changes). 
+  **Note:** you can run the [network verification](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#verify-networks) check and [deploy the environment](https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#deploy-changes).
 
-	After this is complete you should see a success message:
+  After this is complete you should see a success message:
 
-	![OpenStack Deployment Successful](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-complete.jpg)
+  ![OpenStack Deployment Successful](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-complete.jpg)
 
-	**Note:** It make take an hour or more for the OpenStack deployment to complete, depending on your hardware configuration. 
+  **Note:** It make take an hour or more for the OpenStack deployment to complete, depending on your hardware configuration.
 
 
 
@@ -181,32 +184,32 @@ Once the plugin has been installed in the Master, we configure the nodes and set
 Once the OpenStack Cluster is setup, we can setup ScaleIO Volumes. This is an example in how to attach a Volume to a running VM:  
 
 1. Login into the OpenStack Cluster:
- 
-	![OpenStack Login](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-6.PNG)
 
-2. Review the Block storage services by navigating: Admin -> System -> System Information secction. You should see the ScaleIO Cinder Volume. 
- 
-	![Block Storage Services Verification](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-7.PNG)
+  ![OpenStack Login](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-6.PNG)
+
+2. Review the Block storage services by navigating: Admin -> System -> System Information secction. You should see the ScaleIO Cinder Volume.
+
+  ![Block Storage Services Verification](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-7.PNG)
 
 3. Review the System Volumes by navigating to:  Admin -> System -> Volumes. You should see the ScaleIO Volume Type:
 
-	![Volume Type Verification](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-8.PNG)
+  ![Volume Type Verification](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-8.PNG)
 
-4. Create a new OpenStack Volume: 
-	
-	![Volume Creation](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-9.PNG)
+4. Create a new OpenStack Volume:
+
+  ![Volume Creation](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-9.PNG)
 
 5. View the newly created Volume:
-	
-	![Volume Listing](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-10.PNG)
 
-6. In the ScaleIO Control Panel, you will see that no Volumes have been mapped yet:	
+  ![Volume Listing](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-10.PNG)
 
-	![ScaleIO UI No mapped Volumes](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-11.PNG)
+6. In the ScaleIO Control Panel, you will see that no Volumes have been mapped yet:
 
-7. Once the Volume is attached to a VM, the ScaleIO UI will reflect the mapping: 
+  ![ScaleIO UI No mapped Volumes](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-11.PNG)
 
-	![ScaleIO UI Mapped Volume](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-12.png)
+7. Once the Volume is attached to a VM, the ScaleIO UI will reflect the mapping:
+
+  ![ScaleIO UI Mapped Volume](https://github.com/emccode/fuel-plugin-scaleio-cinder-test/blob/master/doc/images/scaleio-cinder-install-12.png)
 
 
 
