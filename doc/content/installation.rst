@@ -17,7 +17,7 @@ The first step is to install the ScaleIO Cinder plugin in the Fuel Master:
 
 4. Verify that the plugin has been installed successfully: 
 
-.. image::https://github.com/openstack/fuel-plugin-scaleio-cinder/blob/master/doc/images/scaleio-cinder-install-1.png
+.. image:: https://github.com/openstack/fuel-plugin-scaleio-cinder/blob/master/doc/images/scaleio-cinder-install-1.png
 
 
 ===========================================================
