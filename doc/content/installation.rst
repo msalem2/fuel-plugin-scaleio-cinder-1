@@ -63,25 +63,26 @@ Once the plugin has been installed in the Master, we configure the nodes and set
 	.. image:: https://github.com/openstack/fuel-plugin-scaleio-cinder/blob/master/doc/images/scaleio-cinder-install-5.PNG
 
 
-4. After the configuration is done, you can Add the nodes to the Openstack Deployment. There is a minimum of two nodes for this configuration: 
+4. After the configuration is done, you can Add the nodes to the Openstack Deployment. There is a minimum of two nodes for this configuration
     +---------------------+-------------------------------------------------------------------------------------+
     |Service/Role Name    | Description     			 				                |
     +=====================+=====================================================================================+
     |Controller Node      |A node that runs network, volume, API, scheduler, and image services.                |
-    |+ Cinder Host        |Each service may be broken out into separate nodes for scalability or availability.  |
+    |  Cinder Host        |Each service may be broken out into separate nodes for scalability or availability.  |
     |			  |In addition this node is a Cinder Host, that contains the Cinder Volume Manager      |
     +---------------------+-------------------------------------------------------------------------------------+		    |Compute Node         |A node that runs the nova-compute daemon that manages Virtual Machines instances that|
     |                     |provide a wide range of services, such as web applications and analytics.            |
-    +-------------------------+---------------------------------------------------------------------------------+									
-	.. image:: https://github.com/openstack/fuel-plugin-scaleio-cinder/blob/master/doc/images/scaleio-cinder-install-3.PNG
+    +-------------------------+---------------------------------------------------------------------------------+	
 
-	**Note:** you can run the 
-	.. image:: https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#verify-networks 
-	check and https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#deploy-changes. 
 
-	After this is complete you should see a success message:
+    
+.. image:: https://github.com/openstack/fuel-plugin-scaleio-cinder/blob/master/doc/images/scaleio-cinder-install-3.PNG
 
-	.. image:: https://github.com/openstack/fuel-plugin-scaleio-cinder/blob/master/doc/images/scaleio-cinder-install-complete.jpg
+**Note:** you can run the 
+check and https://docs.mirantis.com/openstack/fuel/fuel-6.1/user-guide.html#deploy-changes. 
 
-	**Note:** It make take an hour or more for the OpenStack deployment to complete, depending on your hardware configuration. 
+After this is complete you should see a success message:
+.. image:: https://github.com/openstack/fuel-plugin-scaleio-cinder/blob/master/doc/images/scaleio-cinder-install-complete.jpg
+
+**Note:** It make take an hour or more for the OpenStack deployment to complete, depending on your hardware configuration. 
 
